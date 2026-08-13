@@ -23,3 +23,5 @@ Sem `google-services.json`, o projeto continua funcionando como WebView, mas o F
 
 ## Build
 O workflow `.github/workflows/build-meu-suporte-apk.yml` compila o APK debug e publica o APK como Artifact do GitHub Actions.
+
+Build de validação configurado na branch `meu-suporte-android`.
