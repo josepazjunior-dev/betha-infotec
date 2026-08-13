@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -38,6 +39,7 @@ public class MeuSuporteMessagingService extends FirebaseMessagingService {
         if (Build.VERSION.SDK_INT >= 26) {
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "Mensagens do Meu Suporte", NotificationManager.IMPORTANCE_HIGH);
             channel.enableVibration(true);
+            channel.setDescription("Alertas de novas mensagens do Meu Suporte");
             nm.createNotificationChannel(channel);
         }
 
@@ -49,14 +51,17 @@ public class MeuSuporteMessagingService extends FirebaseMessagingService {
         android.app.Notification.Builder b = Build.VERSION.SDK_INT >= 26
                 ? new android.app.Notification.Builder(this, CHANNEL_ID)
                 : new android.app.Notification.Builder(this);
-        b.setSmallIcon(android.R.drawable.ic_dialog_email)
+        b.setSmallIcon(R.drawable.ic_stat_meusuporte)
+         .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher_meusuporte))
          .setContentTitle(title)
          .setContentText(body)
          .setStyle(new android.app.Notification.BigTextStyle().bigText(body))
          .setAutoCancel(true)
          .setContentIntent(pi)
          .setPriority(android.app.Notification.PRIORITY_HIGH)
-         .setDefaults(android.app.Notification.DEFAULT_ALL);
+         .setDefaults(android.app.Notification.DEFAULT_ALL)
+         .setCategory(android.app.Notification.CATEGORY_MESSAGE)
+         .setColor(0xFF19E28A);
         nm.notify((int) (System.currentTimeMillis() & 0x0FFFFFFF), b.build());
     }
 }
