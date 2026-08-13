@@ -50,7 +50,7 @@ public class MainActivity extends Activity {
         s.setMediaPlaybackRequiresUserGesture(false);
         s.setAllowFileAccess(true);
         s.setAllowContentAccess(true);
-        s.setUserAgentString(s.getUserAgentString() + " MeuSuporteAndroid/1.0");
+        s.setUserAgentString(s.getUserAgentString() + " MeuSuporteAndroid/1.0.1");
         CookieManager.getInstance().setAcceptCookie(true);
         CookieManager.getInstance().setAcceptThirdPartyCookies(webView, true);
 
@@ -61,6 +61,15 @@ public class MainActivity extends Activity {
                 if ("meusuporte.online".equalsIgnoreCase(u.getHost())) return false;
                 startActivity(new Intent(Intent.ACTION_VIEW, u));
                 return true;
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                CookieManager.getInstance().flush();
+                if (url != null && url.startsWith("https://meusuporte.online/painel/")) {
+                    registerFcmToken();
+                }
             }
         });
 
@@ -115,7 +124,6 @@ public class MainActivity extends Activity {
                 sendToken(task.getResult());
             });
         } catch (IllegalStateException ignored) {
-            // Firebase ainda não configurado: o app continua funcionando como painel WebView.
         }
     }
 
@@ -129,6 +137,9 @@ public class MainActivity extends Activity {
                 c.setReadTimeout(8000);
                 c.setDoOutput(true);
                 c.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+                c.setRequestProperty("User-Agent", "MeuSuporteAndroid/1.0.1");
+                String cookies = CookieManager.getInstance().getCookie(PANEL_URL);
+                if (cookies != null && !cookies.trim().isEmpty()) c.setRequestProperty("Cookie", cookies);
                 String body = "token=" + URLEncoder.encode(token, StandardCharsets.UTF_8.name()) +
                         "&device=android&package=" + URLEncoder.encode("online.meusuporte.painel", StandardCharsets.UTF_8.name());
                 try (OutputStream out = c.getOutputStream()) {
