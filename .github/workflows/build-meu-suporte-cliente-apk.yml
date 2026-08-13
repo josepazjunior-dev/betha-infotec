@@ -22,8 +22,15 @@ jobs:
           gradle-version: '9.1.0'
       - name: Build debug APK
         run: gradle assembleDebug --stacktrace
+      - name: Build release AAB
+        run: gradle bundleRelease --stacktrace
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: Meu-Suporte-Cliente-Android-debug
+          name: Meu-Suporte-Onlline-debug
           path: Meu-Suporte-Cliente-Android/app/build/outputs/apk/debug/app-debug.apk
+      - name: Upload unsigned release AAB
+        uses: actions/upload-artifact@v4
+        with:
+          name: Meu-Suporte-Onlline-release-aab
+          path: Meu-Suporte-Cliente-Android/app/build/outputs/bundle/release/app-release.aab
