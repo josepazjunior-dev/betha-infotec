@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "34677754480",
+    "project_id": "meu-suporte-3b9ff",
+    "storage_bucket": "meu-suporte-3b9ff.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:34677754480:android:2c82c95d24f8fef07d02b5",
+        "android_client_info": {
+          "package_name": "online.meusuporte.painel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsbOg0YOaUzAA0xJO1Im1Try_XL__Ap0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
