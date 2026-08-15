@@ -10,6 +10,15 @@ android {
     namespace = "online.meusuporte.painel"
     compileSdk = 36
 
+    signingConfigs {
+        getByName("debug") {
+            storeFile = rootProject.file("keystore/meusuporte-dev.keystore")
+            storePassword = "android"
+            keyAlias = "meusuportedev"
+            keyPassword = "android"
+        }
+    }
+
     defaultConfig {
         applicationId = "online.meusuporte.painel"
         minSdk = 23
@@ -19,6 +28,9 @@ android {
     }
 
     buildTypes {
+        debug {
+            signingConfig = signingConfigs.getByName("debug")
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
