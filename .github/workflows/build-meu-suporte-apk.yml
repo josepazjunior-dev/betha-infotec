@@ -26,25 +26,10 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '9.1.0'
-      - name: Restore stable Android debug signing key
-        uses: actions/cache@v4
-        with:
-          path: ~/.android/debug.keystore
-          key: meu-suporte-panel-debug-signing-v1
-      - name: Create stable debug signing key when missing
+      - name: Restore fixed development signing key
         run: |
-          mkdir -p "$HOME/.android"
-          if [ ! -f "$HOME/.android/debug.keystore" ]; then
-            keytool -genkeypair -v \
-              -keystore "$HOME/.android/debug.keystore" \
-              -storepass android \
-              -alias androiddebugkey \
-              -keypass android \
-              -keyalg RSA \
-              -keysize 2048 \
-              -validity 10000 \
-              -dname "CN=Android Debug,O=Android,C=US"
-          fi
+          mkdir -p keystore
+          base64 -d keystore/meusuporte-dev.keystore.b64 > keystore/meusuporte-dev.keystore
       - name: Restore Firebase config when configured
         if: ${{ env.GOOGLE_SERVICES_JSON != '' }}
         run: printf '%s' "$GOOGLE_SERVICES_JSON" > app/google-services.json
