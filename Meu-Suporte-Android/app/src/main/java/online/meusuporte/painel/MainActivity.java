@@ -16,6 +16,9 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import androidx.webkit.WebSettingsCompat;
+import androidx.webkit.WebViewFeature;
+
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.io.OutputStream;
@@ -50,7 +53,15 @@ public class MainActivity extends Activity {
         s.setMediaPlaybackRequiresUserGesture(false);
         s.setAllowFileAccess(true);
         s.setAllowContentAccess(true);
-        s.setUserAgentString(s.getUserAgentString() + " MeuSuporteAndroid/1.0.1");
+        s.setUserAgentString(s.getUserAgentString() + " MeuSuporteAndroid/1.0.3");
+
+        if (WebViewFeature.isFeatureSupported(WebViewFeature.WEB_AUTHENTICATION)) {
+            WebSettingsCompat.setWebAuthenticationSupport(
+                    s,
+                    WebSettingsCompat.WEB_AUTHENTICATION_SUPPORT_FOR_APP
+            );
+        }
+
         CookieManager.getInstance().setAcceptCookie(true);
         CookieManager.getInstance().setAcceptThirdPartyCookies(webView, true);
 
@@ -137,7 +148,7 @@ public class MainActivity extends Activity {
                 c.setReadTimeout(8000);
                 c.setDoOutput(true);
                 c.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-                c.setRequestProperty("User-Agent", "MeuSuporteAndroid/1.0.1");
+                c.setRequestProperty("User-Agent", "MeuSuporteAndroid/1.0.3");
                 String cookies = CookieManager.getInstance().getCookie(PANEL_URL);
                 if (cookies != null && !cookies.trim().isEmpty()) c.setRequestProperty("Cookie", cookies);
                 String body = "token=" + URLEncoder.encode(token, StandardCharsets.UTF_8.name()) +
