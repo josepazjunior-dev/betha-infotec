@@ -26,11 +26,32 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '9.1.0'
+      - name: Restore stable Android debug signing key
+        uses: actions/cache@v4
+        with:
+          path: ~/.android/debug.keystore
+          key: meu-suporte-panel-debug-signing-v1
+      - name: Create stable debug signing key when missing
+        run: |
+          mkdir -p "$HOME/.android"
+          if [ ! -f "$HOME/.android/debug.keystore" ]; then
+            keytool -genkeypair -v \
+              -keystore "$HOME/.android/debug.keystore" \
+              -storepass android \
+              -alias androiddebugkey \
+              -keypass android \
+              -keyalg RSA \
+              -keysize 2048 \
+              -validity 10000 \
+              -dname "CN=Android Debug,O=Android,C=US"
+          fi
       - name: Restore Firebase config when configured
         if: ${{ env.GOOGLE_SERVICES_JSON != '' }}
         run: printf '%s' "$GOOGLE_SERVICES_JSON" > app/google-services.json
       - name: Build debug APK
         run: gradle assembleDebug --stacktrace
+      - name: Print signing fingerprint
+        run: keytool -printcert -jarfile app/build/outputs/apk/debug/app-debug.apk | grep -A 2 'Certificate fingerprints'
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
