@@ -53,7 +53,7 @@ public class MainActivity extends Activity {
         s.setMediaPlaybackRequiresUserGesture(false);
         s.setAllowFileAccess(true);
         s.setAllowContentAccess(true);
-        s.setUserAgentString(s.getUserAgentString() + " MeuSuporteAndroid/1.0.3");
+        s.setUserAgentString(s.getUserAgentString() + " MeuSuporteAndroid/1.0.4");
 
         if (WebViewFeature.isFeatureSupported(WebViewFeature.WEB_AUTHENTICATION)) {
             WebSettingsCompat.setWebAuthenticationSupport(
@@ -148,7 +148,7 @@ public class MainActivity extends Activity {
                 c.setReadTimeout(8000);
                 c.setDoOutput(true);
                 c.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-                c.setRequestProperty("User-Agent", "MeuSuporteAndroid/1.0.3");
+                c.setRequestProperty("User-Agent", "MeuSuporteAndroid/1.0.4");
                 String cookies = CookieManager.getInstance().getCookie(PANEL_URL);
                 if (cookies != null && !cookies.trim().isEmpty()) c.setRequestProperty("Cookie", cookies);
                 String body = "token=" + URLEncoder.encode(token, StandardCharsets.UTF_8.name()) +
