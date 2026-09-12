@@ -1,441 +1,220 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Betha Infotec</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Betha Infotech | Tecnologia, Sistemas & Automação</title>
+  <meta name="description" content="Sistemas, automações e ferramentas digitais para resolver problemas reais do seu negócio." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --navy: #0d2233;
+  --navy-2: #132f45;
+  --teal: #35c4b7;
+  --teal-dark: #1fa99e;
+  --white: #ffffff;
+  --off: #f4f7f8;
+  --text: #173042;
+  --muted: #657784;
+  --border: #dce5e9;
+  --shadow: 0 24px 70px rgba(13, 34, 51, .14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--text);line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,calc(100% - 40px));margin:auto}
+.header{position:fixed;top:0;left:0;width:100%;z-index:50;background:rgba(255,255,255,.93);backdrop-filter:blur(14px);border-bottom:1px solid rgba(220,229,233,.75)}
+.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--navy);font-size:18px}.brand-mark{display:grid;place-items:center;width:42px;height:42px;background:var(--navy);color:var(--teal);border-radius:12px;font-weight:800}
+nav{display:flex;align-items:center;gap:28px}nav a{font-size:14px;font-weight:600;color:#445864}nav a:hover{color:var(--teal-dark)}.nav-cta{padding:11px 18px;background:var(--navy);color:white!important;border-radius:10px}.menu-btn{display:none;background:none;border:0;font-size:26px;color:var(--navy)}
+.hero{padding:145px 0 90px;background:radial-gradient(circle at 85% 20%,rgba(53,196,183,.13),transparent 28%),linear-gradient(180deg,#f9fbfb,#fff)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center}.eyebrow{display:inline-block;font-size:12px;letter-spacing:1.8px;font-weight:800;color:var(--teal-dark);margin-bottom:18px}.hero h1{font-size:clamp(42px,6vw,70px);line-height:1.04;letter-spacing:-3px;color:var(--navy);max-width:800px}.hero h1 span{color:var(--teal-dark)}.hero-copy>p{font-size:19px;color:var(--muted);max-width:650px;margin:26px 0 32px}.hero-actions{display:flex;gap:14px;flex-wrap:wrap}.btn{display:inline-flex;justify-content:center;align-items:center;padding:14px 22px;border-radius:11px;font-weight:700;font-size:15px;transition:.2s}.btn:hover{transform:translateY(-2px)}.btn-primary{background:var(--teal);color:#08252a;box-shadow:0 12px 30px rgba(53,196,183,.25)}.btn-secondary{border:1px solid var(--border);background:white;color:var(--navy)}.mini-proof{display:flex;gap:18px;flex-wrap:wrap;margin-top:28px;font-size:13px;color:#58707d}
+.hero-card{background:var(--navy);border-radius:24px;padding:22px;box-shadow:var(--shadow);transform:rotate(1deg)}.code-top{display:flex;gap:7px;margin-bottom:25px}.code-top span{width:10px;height:10px;border-radius:50%;background:#547083}.code-box{background:#0a1b29;border-radius:15px;padding:28px 24px;color:#d9e6ed;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;line-height:2}.code-key{color:var(--teal)}.result-card{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px;color:#8fa9b8;font-size:12px;letter-spacing:2px}.result-card strong{grid-column:1/-1;color:white;font-size:20px;letter-spacing:4px;margin-top:10px}
+.section{padding:100px 0}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:80px}.section-title h2,.section-heading h2,.cta-box h2{font-size:clamp(34px,5vw,50px);line-height:1.12;letter-spacing:-2px;color:var(--navy)}.text-block p{font-size:18px;color:var(--muted);margin-bottom:20px}.section-dark{background:var(--navy);color:white}.section-dark h2{color:white}.section-heading{max-width:700px;margin-bottom:50px}.section-heading.center{text-align:center;margin:0 auto 50px}.section-heading p{color:#90a7b5;margin-top:15px}
+.cards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.service-card{background:#112b3f;border:1px solid #29465b;border-radius:18px;padding:28px;min-height:260px}.service-card .icon{width:48px;height:48px;border-radius:13px;background:rgba(53,196,183,.13);display:grid;place-items:center;color:var(--teal);font-size:23px;margin-bottom:26px}.service-card h3{font-size:20px;margin-bottom:12px}.service-card p{color:#9fb2bd;font-size:15px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:45px}.step{padding:24px 10px;border-top:2px solid var(--border)}.step>span{font-weight:800;color:var(--teal-dark);font-size:14px}.step h3{font-size:23px;color:var(--navy);margin:10px 0}.step p{font-size:15px;color:var(--muted)}
+.cta-section{padding:40px 0 100px}.cta-box{background:var(--navy);border-radius:26px;padding:55px;display:grid;grid-template-columns:1.3fr .7fr;gap:50px;align-items:center;color:white;box-shadow:var(--shadow)}.cta-box h2{color:white}.cta-box p{color:#a9bac4;margin-top:16px;max-width:700px}.contact-buttons{display:flex;flex-direction:column;gap:12px}.light{background:transparent;border-color:#365267;color:white}
+footer{padding:38px 0;border-top:1px solid var(--border)}.footer-grid{display:grid;grid-template-columns:1fr auto;align-items:center;gap:14px}.footer-grid strong{color:var(--navy)}.footer-grid p{font-size:13px;color:var(--muted)}.footer-links{display:flex;gap:20px;font-size:13px;color:var(--muted)}.copyright{grid-column:1/-1}
+.reveal{opacity:0;transform:translateY(20px);transition:.7s ease}.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){nav{display:none;position:absolute;top:76px;left:20px;right:20px;background:white;box-shadow:var(--shadow);border-radius:16px;padding:20px;flex-direction:column;align-items:stretch}nav.open{display:flex}.menu-btn{display:block}.hero-grid,.two-col,.cta-box{grid-template-columns:1fr}.hero{padding-top:120px}.cards-grid,.steps{grid-template-columns:1fr 1fr}.hero-card{max-width:600px}.contact-buttons{max-width:360px}.footer-grid{grid-template-columns:1fr}.footer-links{flex-wrap:wrap}}
+@media(max-width:600px){.container{width:min(100% - 28px,1120px)}.hero{padding-bottom:65px}.hero h1{letter-spacing:-2px}.hero-copy>p{font-size:17px}.section{padding:72px 0}.cards-grid,.steps{grid-template-columns:1fr}.cta-box{padding:32px 24px}.mini-proof{flex-direction:column;gap:8px}.result-card{grid-template-columns:1fr}.result-card strong{grid-column:auto}.footer-links{gap:12px}}
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-
-  
-
-<body class="index-page">
-
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/logo.png" alt="">
-        <h1 class="sitename">Betha Infotec</h1>
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a href="#inicio" class="brand">
+        <span class="brand-mark">&lt;/&gt;</span>
+        <span>Betha Infotech</span>
       </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="">Home</a></li>
-          <li><a href="#about">Sobre nós</a></li>
-          <li><a href="#services">Serviços</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menu">☰</button>
+      <nav id="navMenu">
+        <a href="#sobre">Sobre</a>
+        <a href="#solucoes">Soluções</a>
+        <a href="#processo">Como funciona</a>
+        <a href="#contato" class="nav-cta">Fale comigo</a>
       </nav>
-
-      <a class="btn-getstarted" href="https://api.whatsapp.com/send?phone=5548991201836&text=Ol%C3%A1,%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20para%20ter%20uma%20pagina%20de%20venda">Falar com o atendente</a>
-
     </div>
   </header>
 
-  <main class="main">
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">SOLUÇÕES DIGITAIS • AUTOMAÇÃO • SISTEMAS</span>
+          <h1>Transformo problemas do seu negócio em <span>soluções simples.</span></h1>
+          <p>Crio programas, ferramentas e automações para reduzir trabalho manual, organizar processos e melhorar a rotina da sua empresa.</p>
+          <div class="hero-actions">
+            <a href="#contato" class="btn btn-primary">Quero conversar</a>
+            <a href="#solucoes" class="btn btn-secondary">Ver soluções</a>
+          </div>
+          <div class="mini-proof">
+            <span>✓ Soluções práticas</span>
+            <span>✓ Desenvolvimento sob medida</span>
+            <span>✓ Foco no problema real</span>
+          </div>
+        </div>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section">
+        <div class="hero-card reveal">
+          <div class="code-top">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="code-box">
+            <p><span class="code-key">problema</span> = “processo demorado”;</p>
+            <p><span class="code-key">solução</span> = automatizar(problema);</p>
+            <p><span class="code-key">resultado</span> = “mais tempo + controle”;</p>
+          </div>
+          <div class="result-card">
+            <span>IDEIAS</span>
+            <span>PROCESSOS</span>
+            <span>SOLUÇÕES</span>
+            <strong>RESULTADOS</strong>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="section" id="sobre">
+      <div class="container two-col">
+        <div class="section-title reveal">
+          <span class="eyebrow">SOBRE</span>
+          <h2>Não vendo apenas programação. Eu resolvo problemas.</h2>
+        </div>
+        <div class="text-block reveal">
+          <p>Meu trabalho começa entendendo o que está consumindo tempo, causando erros ou dificultando a gestão do negócio.</p>
+          <p>A partir disso, desenvolvo uma solução digital simples, prática e pensada para a rotina real da empresa.</p>
+          <p>O objetivo é usar tecnologia para simplificar processos — e não complicá-los ainda mais.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="solucoes">
       <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
-            <h1 class="">Desperte o desejo de compras dos seus clientes</h1>
-            <p class="">Comece a vender com uma landing page de alta conversão</p>
-            <div class="d-flex">
-              <a href="https://api.whatsapp.com/send?phone=5548991201836&text=Ol%C3%A1,%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20para%20ter%20uma%20pagina%20de%20venda" class="btn-get-started">Falar com o atendente</a>
-              <a href="https://www.youtube.com/watch?v=TT6qov-aGko" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Ver Video</span></a>
-            </div>
-          </div>
-          <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
-            <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
-          </div>
-        </div>
-      </div>
-
-    </section><!-- /Hero Section -->
-
-    <!-- Clients Section -->
-    <section id="clients" class="clients section">
-
-      <div class="container" data-aos="zoom-in">
-
-        <div class="swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 2,
-                  "spaceBetween": 40
-                },
-                "480": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 60
-                },
-                "640": {
-                  "slidesPerView": 4,
-                  "spaceBetween": 80
-                },
-                "992": {
-                  "slidesPerView": 5,
-                  "spaceBetween": 120
-                },
-                "1200": {
-                  "slidesPerView": 6,
-                  "spaceBetween": 120
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
-          </div>
+        <div class="section-heading center reveal">
+          <span class="eyebrow">O QUE POSSO CRIAR</span>
+          <h2>Soluções para diferentes tipos de negócio</h2>
+          <p>Uma base bem estruturada permite adaptar a solução sem precisar começar tudo do zero.</p>
         </div>
 
+        <div class="cards-grid">
+          <article class="service-card reveal">
+            <div class="icon">⚙</div>
+            <h3>Automação de processos</h3>
+            <p>Redução de tarefas repetitivas, controles manuais e etapas desnecessárias.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="icon">▦</div>
+            <h3>Sistemas de gestão</h3>
+            <p>Painéis, cadastros, financeiro, clientes, pedidos, atendimentos e rotinas internas.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="icon">↗</div>
+            <h3>Ferramentas sob medida</h3>
+            <p>Soluções específicas para problemas que sistemas prontos não resolvem bem.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="icon">◎</div>
+            <h3>Integrações</h3>
+            <p>Conexão entre formulários, sites, bancos de dados, APIs e ferramentas usadas no dia a dia.</p>
+          </article>
+        </div>
       </div>
+    </section>
 
-    </section><!-- /Clients Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2 class="">Sobre nós</h2>
-      </div><!-- End Section Title -->
-
+    <section class="section" id="processo">
       <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
-            <p>
-              Somos uma equipe completa para levar o seu produto ou serviço a
-               outro nível criando uma estrutura que realmente vai ter trazer resultados e conversões. 
-            </p>
-            <ul>
-              <li><i class="bi bi-check2-circle"></i> <span>Equipe Completa:  Sugerindo um conjunto diversificado de habilidades e profissionais para atender às necessidades do cliente.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span>Foco em Resultados e Conversões: A ênfase está em gerar resultados e conversões, indicando que a meta principal é alcançar objetivos mensuráveis e eficazes para o cliente.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span>Estrutura Personalizada: A criação de uma estrutura específica para o produto ou serviço, sugerindo uma abordagem personalizada e adaptada às necessidades únicas de cada cliente</span></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <p>Através de criação de páginas personalizadas e pensadas para seu negócio, 
-               com um design impactante, carregamento veloz e copywriting de conversão. </p>
-            <a href="https://api.whatsapp.com/send?phone=5548991201836&text=Ol%C3%A1,%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20para%20ter%20uma%20pagina%20de%20venda" class="read-more"><span>Falar com atendente</span><i class="bi bi-arrow-right"></i></a>
-          </div>
-
+        <div class="section-heading reveal">
+          <span class="eyebrow">COMO FUNCIONA</span>
+          <h2>Do problema à solução</h2>
         </div>
-
-      </div>
-
-    </section><!-- /About Section -->
-
-    <!-- Why Us Section -->
-    <section id="why-us" class="section why-us" data-builder="section">
-
-      <div class="container-fluid">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-7 d-flex flex-column justify-content-center order-2 order-lg-1">
-
-            <div class="content px-xl-5" data-aos="fade-up" data-aos-delay="100">
-              <h3 class=""><span class="">Aumente Suas Vendas com Nossos Especialistas</span><strong>em Criação de Páginas de Vendas e Landing Pages</strong></h3>
-              <p class="">
-                Você sabia que a qualidade de uma página de vendas ou landing page pode ser a diferença entre o sucesso e o fracasso de uma campanha? 
-                Somos especialistas em criar páginas que não apenas atraem, mas convertem. Nossa equipe dedicada trabalha incansavelmente para desenvolver 
-                designs otimizados e conteúdos persuasivos que capturam a atenção do seu público-alvo e os direcionam para a ação desejada.
-                <br> <br><strong>Ao escolher nossos serviços, você terá acesso a:</strong>
-              </p>
-            </div>
-
-            <div class="faq-container px-xl-5" data-aos="fade-up" data-aos-delay="200">
-
-              <div class="faq-item faq-active">
-
-                <h3><span>01</span>Design Profissional:</h3>
-                <div class="faq-content">
-                  <p>Layouts modernos e responsivos que se adaptam 
-                    a qualquer dispositivo, proporcionando uma experiência
-                     de usuário impecável</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3><span>02</span> Conteúdo Persuasivo:</h3>
-                <div class="faq-content">
-                  <p>Textos estratégicos e envolventes que comunicam 
-                    claramente os benefícios do seu produto ou serviço,
-                     incentivando os visitantes a tomar a ação desejada.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3><span>03</span> Otimização para Conversões:</h3>
-                <div class="faq-content">
-                  <p>Técnicas avançadas de SEO e CRO (Otimização da Taxa de Conversão)
-                     para garantir que sua página não apenas atraia visitantes, mas também
-                      os converta em clientes.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-            </div>
-
-          </div>
-
-          <div class="col-lg-5 order-1 order-lg-2 why-us-img">
-            <img src="assets/img/why-us.png" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
-          </div>
+        <div class="steps">
+          <div class="step reveal"><span>01</span><h3>Entender</h3><p>Você explica o problema, dificuldade ou processo que precisa melhorar.</p></div>
+          <div class="step reveal"><span>02</span><h3>Planejar</h3><p>Eu organizo a solução, funcionalidades essenciais e melhor caminho técnico.</p></div>
+          <div class="step reveal"><span>03</span><h3>Criar</h3><p>Desenvolvo a ferramenta com foco em simplicidade, clareza e uso prático.</p></div>
+          <div class="step reveal"><span>04</span><h3>Validar</h3><p>Testamos na rotina real e ajustamos o necessário antes da utilização final.</p></div>
         </div>
-
       </div>
+    </section>
 
-    </section><!-- /Why Us Section -->
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row">
-
-          <div class="col-lg-6 d-flex align-items-center">
-            <img src="assets/img/skills.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-6 pt-4 pt-lg-0 content">
-
-            <h3>Você que esta com dificuldades em captar leads (clientes) e Vender </h3>
-            <p class="fst-italic">
-              Nós elevaremos o posicionamento do seu negócio. com nossa tecnologia Utilizadas como:
-            </p>
-
-            <div class="skills-content skills-animation">
-
-              <div class="progress">
-                <span class="skill"><span>HTML</span> <i class="val">100%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div><!-- End Skills Item -->
-
-              <div class="progress">
-                <span class="skill"><span>CSS</span> <i class="val">90%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div><!-- End Skills Item -->
-
-              <div class="progress">
-                <span class="skill"><span>JavaScript</span> <i class="val">75%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div><!-- End Skills Item -->
-
-              <div class="progress">
-                <span class="skill"><span>Photoshop</span> <i class="val">55%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div><!-- End Skills Item -->
-
-            </div>
-
-          </div>
+    <section class="cta-section" id="contato">
+      <div class="container cta-box reveal">
+        <div>
+          <span class="eyebrow">VAMOS CONVERSAR?</span>
+          <h2>Tem um problema que poderia ser resolvido com tecnologia?</h2>
+          <p>Me explique o que acontece hoje. A primeira etapa é descobrir se realmente vale a pena criar uma solução.</p>
         </div>
-
-      </div>
-
-    </section><!-- /Skills Section -->
-
-    <!-- Services Section -->
-    <section id="services" class="services section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Serviços</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-activity icon"></i></div>
-              <h4><a href="service-details.html" class="stretched-link">Pagina de Venda</a></h4>
-              <p>Você sabia que uma página de vendas bem projetada pode ser a chave para alavancar o sucesso do seu negócio? 
-                Nossa Página de Venda é a solução ideal para quem deseja aumentar as conversões e maximizar os resultados.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
-              <h4><a href="" class="stretched-link">Copywriting</a></h4>
-              <p>Copywriting é crucial para o sucesso de qualquer estratégia de marketing. 
-                Ele transforma palavras em ferramentas poderosas de persuasão, capaz de capturar a atenção do público, gerar interesse e motivar ações. Um bom copywriting pode</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
-              <h4><a href="" class="stretched-link">Social Midia</a></h4>
-              <p>As redes sociais desempenham um papel crucial na estratégia de marketing de qualquer negócio moderno.
-                 A presença ativa e positiva nas redes sociais ajuda a construir a reputação da marca. Compartilhar conteúdo 
-                 relevante e útil demonstra conhecimento e autoridade no setor.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-broadcast icon"></i></div>
-              <h4><a href="" class="stretched-link">Logotipo</a></h4>
-              <p>Um logotipo é muito mais do que uma simples imagem; ele desempenha um papel crucial na identidade e no sucesso de um negócio.
-                 Um logotipo bem desenhado ajuda os clientes a reconhecer instantaneamente sua marca,
-                  criando uma imagem mental associada aos seus produtos ou serviços.</p>
-            </div>
-          </div><!-- End Service Item -->
-
+        <div class="contact-buttons">
+          <a class="btn btn-primary" id="whatsappBtn" href="#">Chamar no WhatsApp</a>
+          <a class="btn btn-secondary light" href="mailto:contato@bethainfotech.com">Enviar e-mail</a>
         </div>
-
       </div>
-
-    </section><!-- /Services Section -->
-
-    <!-- Call To Action Section -->
-    <section id="call-to-action" class="call-to-action section">
-
-      <img src="assets/img/cta-bg.jpg" alt="">
-
-      <div class="container">
-
-        <div class="row" data-aos="zoom-in" data-aos-delay="100">
-          <div class="col-xl-9 text-center text-xl-start">
-            <h3>Deixe-nos ajudar você a transformar visitantes em clientes fiéis.</h3>
-            <p>
-               Confie nos nossos especialistas para criar páginas de vendas e landing pages
-                que realmente fazem a diferença. Entre em contato conosco hoje mesmo e descubra 
-                como podemos levar seu negócio ao próximo nível!</p>
-          </div>
-          <div class="col-xl-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="https://api.whatsapp.com/send?phone=5548991201836&text=Ol%C3%A1,%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20para%20ter%20uma%20pagina%20de%20venda">Quero Subir de Nivel agora</a>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /Call To Action Section -->
-
-    
-    
-
-    
-
+    </section>
   </main>
 
-  <footer id="footer" class="footer">
-
-    <div class="footer-newsletter">
-      <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col-lg-6">
-            <h4>Quer receber promoções?</h4>
-            <p>Deixe seu e-mail</p>
-            <form action="forms/newsletter.php" method="post" class="php-email-form">
-              <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Enviar"></div>
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Sua solicitação de assinatura foi enviada. Thank you!</div>
-            </form>
-          </div>
-        </div>
+  <footer>
+    <div class="container footer-grid">
+      <div><strong>Betha Infotech</strong><p>Tecnologia, Sistemas & Automação</p></div>
+      <div class="footer-links">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#solucoes">Soluções</a>
+        <a href="#contato">Contato</a>
       </div>
+      <p class="copyright">© <span id="year"></span> Todos os direitos reservados.</p>
     </div>
-
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="d-flex align-items-center">
-            <span class="sitename">Betha Infotec</span>
-          </a>
-          <div class="footer-contact pt-3">
-            
-            <p class="mt-3"><strong>Telefone:</strong> <span>+55 48 99120-1836</span></p>
-            <p><strong>Email:</strong> <span>info@bethainfotec.site</span></p>
-          </div>
-        </div>
-
-        
   </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <script>
+const menuBtn = document.getElementById('menuBtn');
+const navMenu = document.getElementById('navMenu');
+menuBtn.addEventListener('click', () => navMenu.classList.toggle('open'));
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', () => navMenu.classList.remove('open'));
+});
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+document.getElementById('year').textContent = new Date().getFullYear();
 
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+const whatsappNumber = '5500000000000';
+const whatsappText = encodeURIComponent('Olá! Vi seu site e gostaria de conversar sobre uma solução para meu negócio.');
+document.getElementById('whatsappBtn').href = `https://wa.me/${whatsappNumber}?text=${whatsappText}`;
 
+document.querySelectorAll('.reveal').forEach(el => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: .12 });
+  observer.observe(el);
+});
+
+  </script>
 </body>
-
 </html>
